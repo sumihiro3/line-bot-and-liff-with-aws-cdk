@@ -22,7 +22,7 @@
     "@aws-cdk/cx-api" "1.39.0"
     constructs "^3.0.2"
 
-"@aws-cdk/aws-apigateway@1.39.0", "@aws-cdk/aws-apigateway@^1.39.0":
+"@aws-cdk/aws-apigateway@1.39.0":
   version "1.39.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigateway/-/aws-apigateway-1.39.0.tgz#454cbe5d2bb2c200325d449b82c888c0d4534b93"
   integrity sha512-08FTxH45kgfnH3zfMXe7RDV6XtXDa1mzFEX0NiqMyU1gcFIrQOK0oS6GJrlulADZHrPSpcN26BUW7yOqD6GsOw==
@@ -93,7 +93,7 @@
     "@aws-cdk/core" "1.39.0"
     constructs "^3.0.2"
 
-"@aws-cdk/aws-dynamodb@1.39.0", "@aws-cdk/aws-dynamodb@^1.39.0":
+"@aws-cdk/aws-dynamodb@1.39.0":
   version "1.39.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-dynamodb/-/aws-dynamodb-1.39.0.tgz#6193e53613a7112b1bc0ddcd5ae2e0e430ab83f6"
   integrity sha512-fMkmFYDM6rLrj9NJhpX1SIUlH78iKYAeuOFFJ8D7BYtcbOjtQmiMJj1xIndG6ckR60jhZW1TRluUN9Hgzu/2ww==
@@ -175,7 +175,7 @@
     "@aws-cdk/core" "1.39.0"
     constructs "^3.0.2"
 
-"@aws-cdk/aws-lambda-event-sources@^1.39.0":
+"@aws-cdk/aws-lambda-event-sources@1.39.0":
   version "1.39.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-lambda-event-sources/-/aws-lambda-event-sources-1.39.0.tgz#50603dd9d4abbe6fb43e04c7602107e83db45fc5"
   integrity sha512-eVGucleluVH+/eA1E/3gqINcmINjWIlahtp9zXQG/UKvreyl/YLhbf4JfboQCSzy0Q/q0Xyy7P4XARpjZIyOgA==
@@ -194,7 +194,7 @@
     "@aws-cdk/core" "1.39.0"
     constructs "^3.0.2"
 
-"@aws-cdk/aws-lambda@1.39.0", "@aws-cdk/aws-lambda@^1.39.0":
+"@aws-cdk/aws-lambda@1.39.0":
   version "1.39.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-lambda/-/aws-lambda-1.39.0.tgz#b4c5804324b5bc46bd408e77fab9b37e0fb805e0"
   integrity sha512-e4HKH7f9bEIyJmzKKu5OvfGcUuifZuLjEvN5NuNhlehVt86efEqeBqwEGz7oPrf8G8CQsCuwLzPRV72bHyPYHQ==
@@ -292,7 +292,7 @@
     "@aws-cdk/core" "1.39.0"
     constructs "^3.0.2"
 
-"@aws-cdk/aws-sqs@1.39.0", "@aws-cdk/aws-sqs@^1.39.0":
+"@aws-cdk/aws-sqs@1.39.0":
   version "1.39.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-sqs/-/aws-sqs-1.39.0.tgz#2bb4ff4d95a0ea214b339731fe123708eadcab29"
   integrity sha512-UiIRm2rD/PHzyWantSlBok9pxw5Nxdg8ZnC45pQt6xh8mrtO2OjCcqYTQxnRhcZUJUGtYG7Y/G7eEM5DTGnYAw==

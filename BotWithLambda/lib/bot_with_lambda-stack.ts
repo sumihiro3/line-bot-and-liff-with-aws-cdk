@@ -17,7 +17,9 @@ export class BotWithLambdaStack extends cdk.Stack {
     super(scope, id, props)
 
     // Create User table
-    const userTable = new Table(this, 'BotWithLambdaUserTable', {
+    const userTableName = 'BotWithLambdaUserTable'
+    const userTable = new Table(this, userTableName, {
+      tableName: userTableName,
       partitionKey: {
         name: 'id',
         type: AttributeType.STRING,
@@ -29,13 +31,17 @@ export class BotWithLambdaStack extends cdk.Stack {
     console.log('Created User Table', userTable.tableName)
 
     // Lambda Layer
-    const layer = new LayerVersion(this, 'BotWithLambdaLayer', {
+    const layerFunctionName = 'BotWithLambdaLayer'
+    const layer = new LayerVersion(this, layerFunctionName, {
+      layerVersionName: layerFunctionName,
       compatibleRuntimes: [Runtime.NODEJS_12_X],
       code: Code.fromAsset('dist'),
     })
 
     // Lambda Function [API]
-    const apiLambdaFunction = new LambdaFunction(this, 'BotWithLambda', {
+    const functionName = 'BotWithLambda'
+    const apiLambdaFunction = new LambdaFunction(this, functionName, {
+      functionName: functionName,
       runtime: Runtime.NODEJS_12_X,
       handler: 'index.handler',
       code: Code.fromAsset(path.join(__dirname, '..', 'src')),
@@ -52,18 +58,21 @@ export class BotWithLambdaStack extends cdk.Stack {
     // Grant Read/Write to User table
     userTable.grantReadWriteData(apiLambdaFunction)
     // API Gateway
-    const api = new LambdaRestApi(this, 'BotWithLambdaAPI', {
+    const apiGwName = 'BotWithLambdaApiGW'
+    const api = new LambdaRestApi(this, apiGwName, {
+      restApiName: apiGwName,
       handler: apiLambdaFunction,
-      restApiName: 'botWithLambda',
       proxy: false,
     })
     api.root.addMethod('POST')
 
     // Lambda Function [DynamoDB Streams]
+    const dbStreamFunctionName = 'BotWithLambdaDbStream'
     const dbStreamLambdaFunction = new LambdaFunction(
       this,
-      'BotWithLambdaDbStream',
+      dbStreamFunctionName,
       {
+        functionName: dbStreamFunctionName,
         runtime: Runtime.NODEJS_12_X,
         handler: 'db_stream.handler',
         code: Code.fromAsset('src'),
@@ -79,7 +88,10 @@ export class BotWithLambdaStack extends cdk.Stack {
       }
     )
     // Dead letter queue
-    const deadLetterQueue = new Queue(this, 'BotWithLambdaDLQ')
+    const dlqName = 'BotWithLambdaDLQ'
+    const deadLetterQueue = new Queue(this, dlqName, {
+      queueName: dlqName,
+    })
     // add Event source
     dbStreamLambdaFunction.addEventSource(
       new DynamoEventSource(userTable, {
